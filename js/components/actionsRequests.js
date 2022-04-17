@@ -5,8 +5,8 @@ import {LocalStorageVisit} from './localStorageVisit.js';
 // Authorization request for getting token
 class Authorization {
     constructor() {
-        this._email = "btest@gmail.com";
-        this._password = "HelloWorld!";
+        this._email = "VoMu_team@email.com";
+        this._password = "Welcome135!";
         this._loginURL = "http://cards.danit.com.ua/login";
     }
 
@@ -71,7 +71,7 @@ export class ActionsRequests extends InstructionForRequests {
     }
 
     // Helper method, if we need to get one visitCard
-
+    // ----------------------------------------------
     async getVisitOneCard(idCard) {
         return await this.actionGetAndDeleleRequest(`${this._url}/${idCard}`, "GET", this._token);
     }
@@ -93,6 +93,7 @@ export class ActionsRequests extends InstructionForRequests {
     }
 
     // Helper method, if we need to DELETE ALL visitCard in server and localStorage
+    // ----------------------------------------------------------------------------
     async deleteAllVisitCard() { // Использовать при очистке Карточек на сервере. Удаляет ВСЕ Карточки
         const allVisitCards = await this.getVisitCards();
         let arrayID = [];
@@ -109,3 +110,27 @@ export class ActionsRequests extends InstructionForRequests {
         this._token = await authorization.getToken();
     }
 }
+
+
+
+// Helper function for testing requests
+//-------------------------------------
+// async function testRequests() {
+    // const ourRequests = new ActionsRequests(); // ОБЯЗАТЕЛЬНО выполняем перед выполнением Запросов
+    // await ourRequests.getToken(); // ОБЯЗАТЕЛЬНО выполняем перед выполнением Запросов
+    // const requestGetVisitCards = await ourRequests.getVisitCards(); // Все карточки
+    // console.log('Get all visitsCard', requestGetVisitCards);
+    // const requestGetOneVisitCards = await ourRequests.getVisitOneCard("2974"); // получаем карточку по id. Но этот метод может нам вообще не пригодится
+    // console.log('Get one visitCard', requestGetOneVisitCards);
+    // const requestPostOneVisitCards = await ourRequests.postVisitCard(dataTextContent); // отправляем новую карточку на сервер
+    // const idRequestPostOneVisitCards = requestPostOneVisitCards.id; // находим id отправленной карточки. В идеале мы будем запоминать в класс этот id
+    // console.log('Post one visitCard', requestPostOneVisitCards);
+    // console.log('ID this visitCard', idRequestPostOneVisitCards);
+    // const requestPutOneVisitCards = await ourRequests.putVisitCard("2972", dataTextContent); // переписываем карточку по id
+    // console.log('Put card with id', requestPutOneVisitCards);
+    // const requestDeleteOneVisitCards = await ourRequests.deleteVisitCard("2966"); // Удаление карточки по id
+    // console.log('Delete card with id', requestDeleteOneVisitCards);
+    // const respDeleteCards = await ourRequests.deleteAllVisitCard(); // Удаляет все карточки
+    // console.log('Delete everything', respDeleteCards);
+// }
+// testRequests();

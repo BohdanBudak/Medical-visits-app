@@ -9,7 +9,7 @@ export class Modal {
 
   createContent() {
     const popup = document.createElement(`div`);
-    popup.className = "Modal-popup";
+    popup.className = "modal-popup";
 
     const formTempate = document.querySelector("#newVisitFormTempl");
     popup.appendChild(formTempate.content.cloneNode(true));
@@ -48,23 +48,23 @@ export class Modal {
     this.element.remove();
   }
 
-  getEnableFields() {
+  getAnableFields() {
     return [...this.inputs]
       .filter(input => input.disabled === false)
       .map(input => input.getAttribute("name"));
   }
 
-  getEnableFieldValues(_element) {
+  getAnableFieldValues(_element) {
     const formData = new FormData(_element);
     const data = {};
 
-    this.getEnableFields().forEach(name => data[name] = formData.get(name));
+    this.getAnableFields().forEach(name => data[name] = formData.get(name));
 
     return data;
   }
 
   getRequestData(_element){
-    const data = this.getEnableFieldValues(_element);
+    const data = this.getAnableFieldValues(_element);
     let dropdownValue = document.querySelector('select').options.selectedIndex;
     data.doctor = this.element.querySelector('select').options[dropdownValue].text;
     data.status = 'open';
@@ -78,7 +78,7 @@ export class Modal {
    */
   closePopup_listener() {
     document.body.addEventListener('click', (event) => {
-      if(event.target.classList.contains('Modal-popup') || event.target.classList.contains('Modal-popup__close')) {
+      if(event.target.classList.contains('modal-popup') || event.target.classList.contains('modal-popup__close')) {
         this.destroy();
       }
     });

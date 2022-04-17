@@ -10,7 +10,7 @@ export class Visit {
 
   createGeneralContent() {
     const containerVisitCard = document.createElement("div");
-    containerVisitCard.className = "visit-Card";
+    containerVisitCard.className = "visit-card";
 
     containerVisitCard.innerHTML = `<button class="visit-card-btn-close">X</button>
       <p><span class="visit-card__status-value">${this.data.status}</span></p>
@@ -102,7 +102,7 @@ export class Visit {
 
   deleteButton_listener() {
     this.element
-      .querySelector(".visit-Card-btn-close")
+      .querySelector(".visit-card-btn-close")
       .addEventListener("click", async event => {
         this.destroyVisitCard();
       });

@@ -14,7 +14,7 @@ export class CreateModal extends Modal {
 
   setInitialState(){
     this.switchType(this.defaultType);
-    this.element.querySelector('.Modal-popup__title').innerText = "Создать визит";
+    this.element.querySelector('.modal-popup__title').innerText = "Создать визит";
     this.element.querySelector('.cards-manipulation-form__submit').innerText = "Создать";
   }
 

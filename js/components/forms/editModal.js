@@ -1,3 +1,4 @@
+import { ActionsRequests } from "../actionsRequests.js";
 import { Modal } from "./modal.js";
 
 export class EditModal extends Modal {
@@ -15,7 +16,7 @@ export class EditModal extends Modal {
     this.element.querySelector("select").value = super.mapType(this.incomeData.doctor);
     this.element.querySelector("select").disabled = true;
     this.switchType(this.incomeData.doctor);
-    this.element.querySelector('.Modal-popup__title').innerText = "Изменить визит";
+    this.element.querySelector('.modal-popup__title').innerText = "Изменить визит";
     this.element.querySelector('.cards-manipulation-form__submit').innerText = "Применить";
     this.fullfillForm()
   }
