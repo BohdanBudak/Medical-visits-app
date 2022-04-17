@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Visits</title>
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/iconfavicon-16x16.png">
+    <link rel="manifest" href="images/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--End Favicon-->
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!--Header with logo and create Button-->
+    <header class="header container">
+        <section class="header__logo">
+            <a class="header__logo-link" href="#">
+                <div class="header__logo-image"></div>
+                <p class="header__logo-title">
+                    The
+                    <span class="header__logo-title--big">Care</span>
+                    start from
+                    <span class="header__logo-title--big">Us</span>
+                </p>
+            </a>
+        </section>
+        <button class="header__btn-add-new-visit">Add New Visit</button>
+    </header>
+
+    <!--Visit desk with cards-->
+    <main class="container">
+        <section class="visits-desk">
+            <p class="visits-desk-info--empty">No items have been added</p>
+        </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+
+    <!--Modal for visitCards-->
+    <template id="newVisitFormTempl">
+            <div class="modal-popup__content">
+                <h3 class="modal-popup__title"></h3>
+                <div class="modal-popup__close">x</div>
+                <form action="" class="cards-manipulation-form">
+                    <select class="cards-manipulation-form__item">
+                        <option value="cardiolog">Кардиолог</option>
+                        <option value="dentist">Стоматолог</option>
+                        <option value="therapist">Терапевт</option>
+                    </select>
+                    <input type="text" id="purpose" name="purpose" class="cards-manipulation-form__item" placeholder = "Цель визита" required>
+                    <input type="text" id="name" name="name" class="cards-manipulation-form__item" placeholder = "ФИО" required>
+                    <input type="text" id="pressure" name="pressure" class="cards-manipulation-form__item cardiolog" data-type="specific" placeholder = "Обычное давление" required>
+                    <input type="text" id="weight" name="weight" class="cards-manipulation-form__item cardiolog" data-type="specific" placeholder = "Индекс массы тела" required>
+                    <input type="text" name="illnesses" class="cards-manipulation-form__item cardiolog" data-type="specific" placeholder = "Перенесенные заболевания сердечно-сосудистой системы" required>
+                    <input type="text" id="age" name="age" class="cards-manipulation-form__item therapist" data-type="specific" placeholder = "Возраст" required>
+                    <input type="date" name="dateLastVisit" id="date" data-type="specific" class="cards-manipulation-form__item dentist" required>
+                    <textarea name="description" id="description" class="cards-manipulation-form__item" cols="30" rows="10" maxlength="400"></textarea>
+                    <button type="submit" class="cards-manipulation-form__item cards-manipulation-form__submit "></button>
+                </form>
+            </div>
+    </template>
+</body>
+
+</html>
